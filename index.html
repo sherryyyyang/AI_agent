@@ -273,49 +273,12 @@
       </section>
 
       <section class="panel">
-        <h2>Workflow Snapshots from Pipeline</h2>
+        <h2>Pipeline Diagnostics &amp; Benchmark Views</h2>
         <p>
-          The figures below are selected from the pipeline report and illustrate
-          key stages of the end‑to‑end workflow using <strong>simulated</strong> data only.
-          They are meant to show how an LLM agent and LLM-based judges can be wired together
-          in a healthcare analytics context.
+          The figures below are selected from later stages of the pipeline report and
+          highlight how the system behaves across many simulated runs: from aggregated
+          benchmark metrics to detailed diagnostics for error modes and guardrails.
         </p>
-
-        <figure style="margin: 1.25rem 0;">
-          <img
-            src="mock-pipeline-page-01.png"
-            alt="High-level overview of the simulated healthcare LLM agent and judge workflow"
-            class="figure-img"
-          />
-          <figcaption style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);">
-            High‑level overview of the simulated healthcare LLM agent and judge workflow,
-            mirroring the narrative in the overview section.
-          </figcaption>
-        </figure>
-
-        <figure style="margin: 1.25rem 0;">
-          <img
-            src="mock-pipeline-page-07.png"
-            alt="Example judge and checklist outputs for simulated cases"
-            class="figure-img"
-          />
-          <figcaption style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);">
-            Example judge and checklist views that correspond to the LLM‑as‑a‑judge
-            section, showing how narrative findings are scored against reporting criteria.
-          </figcaption>
-        </figure>
-
-        <figure style="margin: 1.25rem 0;">
-          <img
-            src="mock-pipeline-page-09.png"
-            alt="Simulated failure patterns and diagnostic views"
-            class="figure-img"
-          />
-          <figcaption style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);">
-            Simulated failure patterns and diagnostic views that align with the discussion
-            of problematic questions and pipeline debugging.
-          </figcaption>
-        </figure>
 
         <figure style="margin: 1.25rem 0;">
           <img
@@ -326,6 +289,30 @@
           <figcaption style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);">
             Simulated benchmark‑style roll‑up for the pipeline, echoing the benchmark
             summary section with aggregated performance and coverage views.
+          </figcaption>
+        </figure>
+
+        <figure style="margin: 1.25rem 0;">
+          <img
+            src="mock-pipeline-page-12.png"
+            alt="Detailed breakdown of simulated error modes and checklist misses"
+            class="figure-img"
+          />
+          <figcaption style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);">
+            Simulated breakdown of error modes and checklist misses, mirroring the
+            discussion of where reports most often fail the healthcare criteria.
+          </figcaption>
+        </figure>
+
+        <figure style="margin: 1.25rem 0;">
+          <img
+            src="mock-pipeline-page-16.png"
+            alt="Guardrails and monitoring views over time"
+            class="figure-img"
+          />
+          <figcaption style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);">
+            Simulated guardrail and monitoring views over time, echoing how alerts and
+            thresholds can keep the pipeline within safe operating bounds.
           </figcaption>
         </figure>
       </section>
