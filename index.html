@@ -169,14 +169,6 @@
           <span>Healthcare LLM Agent &amp; Judge Pipeline</span>
           <span class="badge healthcare">Healthcare analytics</span>
           <span class="badge simulated">Simulated data only</span>
-          <a
-            href="index.html"
-            target="_blank"
-            rel="noopener"
-            style="margin-left: auto; font-size: 0.85rem;"
-          >
-            See the demo
-          </a>
         </div>
       </div>
     </div>
@@ -223,24 +215,10 @@
               statistical analysis, and visualization).
             </p>
             <p>
-              In the reference implementation, this is handled by a Python script that:
+              In this demo, that pipeline receives batches of synthetic healthcare questions,
+              normalizes and validates them, runs simulated analytics, and emits structured
+              JSON-style outputs that a downstream judge can score.
             </p>
-            <ul>
-              <li>Receives a batch of healthcare analytics questions from JSON.</li>
-              <li>Uses an LLM to generate a clean case title / folder name for each query.</li>
-              <li>Runs a multi-step analysis pipeline (validation → data → stats → results).</li>
-              <li>Writes structured JSON reports that downstream evaluators can score.</li>
-            </ul>
-            <div class="code-ish">
-llm_agent_pipeline.py
-├─ unpack_question(...)
-├─ run_analytics(question, user_id)
-│  ├─ QUERY_VALIDATION
-│  ├─ DATA_EXTRACTION
-│  ├─ STATS_ANALYSIS
-│  └─ VISUALIZATION → RESULTS
-└─ batch_run_analytics(...)
-            </div>
           </div>
 
           <div>
@@ -264,23 +242,16 @@ llm_agent_pipeline.py
                 infers which statistical tests were used across many JSON results.
               </li>
             </ul>
-            <div class="code-ish">
-llm_judge_healthcare_criteria.py
-└─ grade_research_finding(...) → JSON scores per checklist item
-
-llm_judge_stats_type.py
-└─ get_statistical_tests_from_json(...) → inferred test types per file
-            </div>
           </div>
         </div>
       </section>
 
       <section class="panel">
-        <h2>Benchmark Report (Simulated)</h2>
+        <h2>Benchmark-style Summary (Simulated)</h2>
         <p>
-          The <code>benchmark_report_generator.py</code> script aggregates results across
-          many questions and batches and produces a Word report with simulated statistics
-          and healthcare-focused summaries.
+          The full pipeline can be rolled up into a benchmark-style summary across many
+          synthetic questions and batches, showing simulated success rates, runtimes,
+          and checklist coverage.
         </p>
         <ul>
           <li>End‑to‑end success rates and runtime distributions across batches.</li>
@@ -294,14 +265,6 @@ llm_judge_stats_type.py
           All key metrics in the overview and figures are randomly perturbed within realistic
           ranges to ensure they do not reveal any operational performance data.
         </p>
-
-        <h3>Key scripts</h3>
-        <div class="pill-list">
-          <span class="pill">llm_agent_pipeline.py &mdash; LLM agent for query &amp; analysis</span>
-          <span class="pill">llm_judge_healthcare_criteria.py &mdash; LLM judge for healthcare reporting</span>
-          <span class="pill">llm_judge_stats_type.py &mdash; LLM judge for statistical tests</span>
-          <span class="pill">benchmark_report_generator.py &mdash; simulated benchmark report</span>
-        </div>
       </section>
 
       <section class="panel">
@@ -332,7 +295,7 @@ llm_judge_stats_type.py
 
         <figure style="margin: 1.25rem 0;">
           <img
-            src="mock-pipeline-figure-1.png"
+            src="mock-pipeline-page-02.png"
             alt="Simulated end-to-end pipeline success rate and runtime distribution"
             style="width: 100%; border-radius: 6px; border: 1px solid var(--border);"
           />
@@ -344,7 +307,7 @@ llm_judge_stats_type.py
 
         <figure style="margin: 1.25rem 0;">
           <img
-            src="mock-pipeline-figure-2.png"
+            src="mock-pipeline-page-03.png"
             alt="Simulated coverage and consistency vs. healthcare reporting checklist"
             style="width: 100%; border-radius: 6px; border: 1px solid var(--border);"
           />
