@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Healthcare LLM Agent & Judge Pipeline</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg-alt: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-soft: rgba(88,166,255,0.15);
+      --success: #3fb950;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header {
+      border-bottom: 1px solid var(--border);
+      background: #010409;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 3rem;
+    }
+    .repo-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1.25rem 0 0.75rem;
+    }
+    .repo-path {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .repo-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.1rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      background: var(--bg-alt);
+    }
+    .badge.healthcare {
+      border-color: var(--success);
+      color: var(--success);
+      background: rgba(63,185,80,0.08);
+    }
+    .badge.simulated {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+    main {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr);
+      gap: 1.5rem;
+    }
+    .panel {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--bg-alt);
+      padding: 1.25rem 1.5rem;
+    }
+    .panel + .panel { margin-top: 1rem; }
+    h2 {
+      margin: 0 0 0.75rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    h3 {
+      margin: 1.1rem 0 0.4rem;
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+    p {
+      margin: 0.3rem 0 0.6rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    ul {
+      margin: 0.25rem 0 0.6rem 1.1rem;
+      padding: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    li { margin-bottom: 0.25rem; }
+    .disclaimer {
+      border-radius: 6px;
+      border: 1px dashed var(--border);
+      padding: 0.75rem 0.9rem;
+      background: #0b1117;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .columns {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.25rem;
+    }
+    @media (min-width: 800px) {
+      .columns {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+    }
+    .label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+    .code-ish {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Liberation Mono",
+        "Courier New", monospace;
+      font-size: 0.82rem;
+      background: #0b1016;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      padding: 0.75rem 0.9rem;
+      color: var(--muted);
+      white-space: pre-line;
+    }
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.3rem;
+    }
+    .pill {
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      padding: 0.15rem 0.6rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      background: #0b1016;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="repo-header">
+        <div class="repo-path">sherry-portfolio / healthcare-llm-agent-judge</div>
+        <div class="repo-title">
+          <span>Healthcare LLM Agent &amp; Judge Pipeline</span>
+          <span class="badge healthcare">Healthcare analytics</span>
+          <span class="badge simulated">Simulated data only</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <main>
+      <section class="panel">
+        <h2>Overview</h2>
+        <p>
+          This project showcases a two-step pipeline using a generic LLM agent for
+          healthcare analytics. The first step generates answers and analytic outputs
+          from free-text queries; the second step applies a separate LLM-based judge,
+          guided by structured healthcare reporting and quantitative criteria, to score
+          and explain the quality of those outputs.
+        </p>
+        <div class="disclaimer">
+          <strong>Data &amp; results are fully simulated.</strong>
+          All statistics, figures, and examples in this project are synthetic and
+          <strong>not representative of any real company, product, patient population, or
+          commercial entity</strong>. They are provided solely to illustrate workflow and
+          modeling capabilities.
+        </div>
+
+        <h3>Healthcare use cases</h3>
+        <p>
+          The same pattern can be used across a wide range of healthcare analytics problems:
+        </p>
+        <ul>
+          <li>Designing and reviewing <strong>clinical trial protocols</strong> and study reports.</li>
+          <li>Summarizing and stress-testing <strong>therapeutic outcome</strong> and real‑world evidence analyses.</li>
+          <li>Interpreting models for <strong>drug pricing, market access, and uptake</strong> scenarios.</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <div class="columns">
+          <div>
+            <div class="label">Step 1</div>
+            <h2>Query for Answer (LLM Agent)</h2>
+            <p>
+              A generic LLM agent ingests a research or analytics question, plans the steps,
+              and orchestrates a multi-stage pipeline (query validation, data/feature extraction,
+              statistical analysis, and visualization).
+            </p>
+            <p>
+              In the reference implementation, this is handled by a Python script that:
+            </p>
+            <ul>
+              <li>Receives a batch of healthcare analytics questions from JSON.</li>
+              <li>Uses an LLM to generate a clean case title / folder name for each query.</li>
+              <li>Runs a multi-step analysis pipeline (validation → data → stats → results).</li>
+              <li>Writes structured JSON reports that downstream evaluators can score.</li>
+            </ul>
+            <div class="code-ish">
+llm_agent_pipeline.py
+├─ unpack_question(...)
+├─ run_analytics(question, user_id)
+│  ├─ QUERY_VALIDATION
+│  ├─ DATA_EXTRACTION
+│  ├─ STATS_ANALYSIS
+│  └─ VISUALIZATION → RESULTS
+└─ batch_run_analytics(...)
+            </div>
+          </div>
+
+          <div>
+            <div class="label">Step 2</div>
+            <h2>LLM as a Judge (Healthcare Criteria)</h2>
+            <p>
+              A separate LLM-based judge evaluates each generated report against a structured
+              healthcare reporting checklist and quantitative rules. The judge returns
+              machine-readable scores and natural language justifications.
+            </p>
+            <p>Two complementary evaluators are provided:</p>
+            <ul>
+              <li>
+                <strong>Healthcare reporting checklist judge</strong>:
+                grades narrative findings against a detailed clinical-reporting checklist
+                (study design, participants, outcomes, bias, interpretation, etc.).
+              </li>
+              <li>
+                <strong>Statistical test type judge</strong>:
+                inspects model outputs (coefficients, p‑values, hazard ratios, etc.) and
+                infers which statistical tests were used across many JSON results.
+              </li>
+            </ul>
+            <div class="code-ish">
+llm_judge_healthcare_criteria.py
+└─ grade_research_finding(...) → JSON scores per checklist item
+
+llm_judge_stats_type.py
+└─ get_statistical_tests_from_json(...) → inferred test types per file
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Benchmark Report (Simulated)</h2>
+        <p>
+          The <code>benchmark_report_generator.py</code> script aggregates results across
+          many questions and batches and produces a Word report with simulated statistics
+          and healthcare-focused summaries.
+        </p>
+        <ul>
+          <li>End‑to‑end success rates and runtime distributions across batches.</li>
+          <li>
+            Coverage and consistency relative to a generic
+            <strong>healthcare reporting criteria checklist</strong>.
+          </li>
+          <li>Failure patterns and diagnostic views for problematic questions.</li>
+        </ul>
+        <p>
+          All key metrics in the overview and figures are randomly perturbed within realistic
+          ranges to ensure they do not reveal any operational performance data.
+        </p>
+
+        <h3>Key scripts</h3>
+        <div class="pill-list">
+          <span class="pill">llm_agent_pipeline.py &mdash; LLM agent for query &amp; analysis</span>
+          <span class="pill">llm_judge_healthcare_criteria.py &mdash; LLM judge for healthcare reporting</span>
+          <span class="pill">llm_judge_stats_type.py &mdash; LLM judge for statistical tests</span>
+          <span class="pill">benchmark_report_generator.py &mdash; simulated benchmark report</span>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+
