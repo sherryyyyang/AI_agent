@@ -307,23 +307,52 @@ llm_judge_stats_type.py
       <section class="panel">
         <h2>Figures from Mock Pipeline Report</h2>
         <p>
-          The figures below are taken directly from the existing mock pipeline report,
-          and all underlying counts, rates, and numerical values have been changed for
-          this demo. They visualize only <strong>simulated</strong> performance and error
-          patterns of the end‑to‑end pipeline, not results from any live system or client.
+          The example figures below are copied from the original mock pipeline report,
+          with all underlying counts, rates, and numerical values changed for this demo.
+          They visualize only <strong>simulated</strong> performance and error patterns of
+          the end‑to‑end pipeline, not results from any live system or client.
         </p>
-        <object
-          data="mock%20pipeline.pdf#page=1"
-          type="application/pdf"
-          width="100%"
-          height="420"
-        >
-          <p>
-            Your browser may not support inline PDF display. You can open the full
-            mock pipeline report instead:
-            <a href="mock%20pipeline.pdf" target="_blank" rel="noopener">open mock pipeline.pdf</a>.
-          </p>
-        </object>
+
+        <p>
+          In a real deployment, you could interpret these views as early warning
+          diagnostics for your LLM pipeline:
+        </p>
+        <ul>
+          <li>
+            Use the success‑rate and runtime distribution plot to decide when the agent
+            needs optimization (e.g., long tails of slow runs or a drop in overall
+            completion rate).
+          </li>
+          <li>
+            Use the checklist coverage figure to spot systematic gaps in reporting
+            (for example, if bias or limitations sections are consistently weak) and
+            feed those back into prompt or tool design.
+          </li>
+        </ul>
+
+        <figure style="margin: 1.25rem 0;">
+          <img
+            src="mock-pipeline-figure-1.png"
+            alt="Simulated end-to-end pipeline success rate and runtime distribution"
+            style="width: 100%; border-radius: 6px; border: 1px solid var(--border);"
+          />
+          <figcaption style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);">
+            Simulated end‑to‑end pipeline success rates and runtime distributions across
+            batches. All values are synthetic and perturbed.
+          </figcaption>
+        </figure>
+
+        <figure style="margin: 1.25rem 0;">
+          <img
+            src="mock-pipeline-figure-2.png"
+            alt="Simulated coverage and consistency vs. healthcare reporting checklist"
+            style="width: 100%; border-radius: 6px; border: 1px solid var(--border);"
+          />
+          <figcaption style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);">
+            Simulated coverage and consistency relative to the healthcare reporting
+            criteria checklist, showing which items are most frequently missed.
+          </figcaption>
+        </figure>
       </section>
     </main>
   </div>
