@@ -2,3 +2,4 @@ benchmark_report_generator.py
 llm_agent_pipeline.py
 llm_judge_healthcare_criteria.py
 llm_judge_stats_type.py
+*.pdf
