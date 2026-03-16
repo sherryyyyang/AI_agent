@@ -268,40 +268,35 @@
       </section>
 
       <section class="panel">
-        <h2>Figures from Mock Pipeline Report</h2>
+        <h2>Workflow Snapshots from Mock Pipeline</h2>
         <p>
-          The example figures below are copied from the original mock pipeline report,
-          with all underlying counts, rates, and numerical values changed for this demo.
-          They visualize only <strong>simulated</strong> performance and error patterns of
-          the end‑to‑end pipeline, not results from any live system or client.
+          The figures below are selected from the mock pipeline report and illustrate
+          key stages of the end‑to‑end workflow using <strong>simulated</strong> data only.
+          They are meant to show how an LLM agent and LLM-based judges can be wired together
+          in a healthcare analytics context.
         </p>
 
-        <p>
-          In a real deployment, you could interpret these views as early warning
-          diagnostics for your LLM pipeline:
-        </p>
-        <ul>
-          <li>
-            Use the success‑rate and runtime distribution plot to decide when the agent
-            needs optimization (e.g., long tails of slow runs or a drop in overall
-            completion rate).
-          </li>
-          <li>
-            Use the checklist coverage figure to spot systematic gaps in reporting
-            (for example, if bias or limitations sections are consistently weak) and
-            feed those back into prompt or tool design.
-          </li>
-        </ul>
+        <figure style="margin: 1.25rem 0;">
+          <img
+            src="mock-pipeline-page-01.png"
+            alt="High-level overview of the simulated healthcare LLM agent and judge workflow"
+            style="width: 100%; border-radius: 6px; border: 1px solid var(--border);"
+          />
+          <figcaption style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);">
+            High‑level overview of the simulated healthcare LLM agent and judge workflow,
+            from incoming questions to scored reports.
+          </figcaption>
+        </figure>
 
         <figure style="margin: 1.25rem 0;">
           <img
             src="mock-pipeline-page-02.png"
-            alt="Simulated end-to-end pipeline success rate and runtime distribution"
+            alt="Simulated agent performance across questions and batches"
             style="width: 100%; border-radius: 6px; border: 1px solid var(--border);"
           />
           <figcaption style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);">
-            Simulated end‑to‑end pipeline success rates and runtime distributions across
-            batches. All values are synthetic and perturbed.
+            Simulated agent performance across batches, including end‑to‑end success
+            rates and runtime distributions for the generated analytics.
           </figcaption>
         </figure>
 
@@ -312,8 +307,20 @@
             style="width: 100%; border-radius: 6px; border: 1px solid var(--border);"
           />
           <figcaption style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);">
-            Simulated coverage and consistency relative to the healthcare reporting
+            Simulated coverage and consistency relative to a healthcare reporting
             criteria checklist, showing which items are most frequently missed.
+          </figcaption>
+        </figure>
+
+        <figure style="margin: 1.25rem 0;">
+          <img
+            src="mock-pipeline-page-05.png"
+            alt="Example of simulated benchmark-style roll-up for the pipeline"
+            style="width: 100%; border-radius: 6px; border: 1px solid var(--border);"
+          />
+          <figcaption style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);">
+            Example of a simulated benchmark-style roll‑up for the pipeline, combining
+            agent and judge outputs into a single view.
           </figcaption>
         </figure>
       </section>
