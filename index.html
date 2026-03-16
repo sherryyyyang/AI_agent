@@ -158,6 +158,15 @@
       color: var(--muted);
       background: #0b1016;
     }
+    .figure-img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -280,7 +289,7 @@
           <img
             src="mock-pipeline-page-01.png"
             alt="High-level overview of the simulated healthcare LLM agent and judge workflow"
-            style="width: 100%; border-radius: 6px; border: 1px solid var(--border);"
+            class="figure-img"
           />
           <figcaption style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);">
             High‑level overview of the simulated healthcare LLM agent and judge workflow,
@@ -292,7 +301,7 @@
           <img
             src="mock-pipeline-page-02.png"
             alt="Simulated agent performance across questions and batches"
-            style="width: 100%; border-radius: 6px; border: 1px solid var(--border);"
+            class="figure-img"
           />
           <figcaption style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);">
             Simulated agent performance across batches, including end‑to‑end success
@@ -304,7 +313,7 @@
           <img
             src="mock-pipeline-page-03.png"
             alt="Simulated coverage and consistency vs. healthcare reporting checklist"
-            style="width: 100%; border-radius: 6px; border: 1px solid var(--border);"
+            class="figure-img"
           />
           <figcaption style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);">
             Simulated coverage and consistency relative to a healthcare reporting
@@ -316,7 +325,7 @@
           <img
             src="mock-pipeline-page-05.png"
             alt="Example of simulated benchmark-style roll-up for the pipeline"
-            style="width: 100%; border-radius: 6px; border: 1px solid var(--border);"
+            class="figure-img"
           />
           <figcaption style="margin-top: 0.5rem; font-size: 0.82rem; color: var(--muted);">
             Example of a simulated benchmark-style roll‑up for the pipeline, combining
